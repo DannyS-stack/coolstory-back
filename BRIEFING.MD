@@ -115,11 +115,11 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                               | Points |
 | ---------------------------------------------------------------------- | ------ |
-| Server contains sequelize models and migrations for Homepage & Story   | 2      |
-| title in homepage and name in story are validated in model & migration | 2      |
-| User, Homepage and Story models are correctly related                  | 2      |
-| Seeders are present to create at least 2 homepages and 4 stories       | 2      |
-| Total                                                                  | 8      |
+| Server contains sequelize models and migrations for Homepage & Story   | 2 V    |
+| title in homepage and name in story are validated in model & migration | 2 V    |
+| User, Homepage and Story models are correctly related                  | 2 V    |
+| Seeders are present to create at least 2 homepages and 4 stories       | 2 V    |
+| Total                                                                  | 8 8    |
 
 ## Features
 
@@ -131,8 +131,8 @@ You will be provided with a wireframe that shows an overview of the app along wi
 
 | Criteria                                                                   | Points |
 | -------------------------------------------------------------------------- | ------ |
-| The frontend route `/` displays a list of homepages                        | 1      |
-| The homepages have a backgroundColor and color as specified by their users | 1      |
+| The frontend route `/` displays a list of homepages                        | 1 V    |
+| The homepages have a backgroundColor and color as specified by their users | 1 V    |
 | The data is managed using Redux                                            | 2      |
 | Each homepage has a `Visit page` button, it links to a homepage's details  | 1      |
 | Total                                                                      | 5      |

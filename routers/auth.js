@@ -3,6 +3,9 @@ const { Router } = require("express");
 const { toJWT } = require("../auth/jwt");
 const authMiddleware = require("../auth/middleware");
 const User = require("../models/").user;
+const HomePage = require("../models/").homepage;
+const Story = require("../models/").story;
+
 const { SALT_ROUNDS } = require("../config/constants");
 
 const router = new Router();
@@ -17,11 +20,18 @@ router.post("/login", async (req, res, next) => {
         .send({ message: "Please provide both email and password" });
     }
 
-    const user = await User.findOne({ where: { email } });
-
+    const user = await User.findOne({
+      where: { email },
+      include: {
+        model: HomePage,
+        include: [Story],
+        order: [[Story, "createdAt", "DESC"]],
+      },
+    });
+    console.log("user", user);
     if (!user || !bcrypt.compareSync(password, user.password)) {
       return res.status(400).send({
-        message: "User with that email not found or password incorrect"
+        message: "User with that email not found or password incorrect",
       });
     }
 
@@ -44,7 +54,7 @@ router.post("/signup", async (req, res) => {
     const newUser = await User.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
-      name
+      name,
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash

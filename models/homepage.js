@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       homepage.belongsTo(models.user);
-      homepage.hasMany(models.stories);
+      homepage.hasMany(models.story);
     }
   }
   homepage.init(
